@@ -71,7 +71,7 @@ elsif defined? Rack
 else
 
   require 'etc'
-  user = Etc.getpwuid.name
+  user = Etc.getpwuid.name rescue nil
 
   $USER = ENV['REMOTE_USER'] ||= ENV['USER'] || user
   if $USER.nil?
